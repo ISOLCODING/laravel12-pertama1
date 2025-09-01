@@ -21,6 +21,16 @@ class Client extends Model
         'updated_by',
     ];
 
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date'
+    ];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
